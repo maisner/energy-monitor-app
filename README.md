@@ -1,16 +1,11 @@
 # Energy monitor WEB App
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+### ENV variables
+```dotenv
+VUE_APP_API_URL=http://localhost:8080
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Scripts
+- `npm run serve` Compiles and hot-reloads for development
+- `npm run build` Compiles and minifies for production
+- `npm run lint` Lints and fixes files

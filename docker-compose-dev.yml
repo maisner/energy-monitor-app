@@ -13,3 +13,7 @@ services:
         #        command: /bin/bash
         stdin_open: true
         tty: true
+        environment:
+            VUE_APP_API_URL: 'http://194.182.69.216:9080'   #test API
+#            VUE_APP_API_URL: 'http://194.182.69.216:8080'   #production API
+#            VUE_APP_API_URL: 'https://e293028e-865b-47fe-b977-caa92669e275.mock.pstmn.io'   #postman mock API

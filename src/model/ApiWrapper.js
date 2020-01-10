@@ -3,16 +3,14 @@ import axios from 'axios'
 class ApiWrapper {
 
 	constructor () {
-		this.baseUrl = 'http://194.182.69.216:8080';//production api
-		// this.baseUrl = 'http://194.182.69.216:9080';//test api
-		// this.baseUrl = 'https://e293028e-865b-47fe-b977-caa92669e275.mock.pstmn.io';//postman mock
+		this.baseUrl = process.env.VUE_APP_API_URL;
 	}
 
 	addMeterState (date, commodity, state) {
 		let data = {
 			commodity: commodity,
-			datetime: date,
-			state: state
+			datetime:  date,
+			state:     state
 		};
 
 		return axios.post(this.baseUrl + '/api/v1/meter-state/add', data).then((response) => {
