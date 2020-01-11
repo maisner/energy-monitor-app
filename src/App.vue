@@ -3,28 +3,41 @@
 		<FlashMessage></FlashMessage>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#">Energy monitor</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 
-					<router-link tag="li" class="nav-item" active-class="active" to="/gas"><a href="/gas" class="nav-link">Plyn</a></router-link>
-					<router-link tag="li" class="nav-item" active-class="active" to="/electric"><a href="/electric" class="nav-link">Elektřina</a></router-link>
+					<router-link tag="li" class="nav-item" active-class="active" to="/gas">
+						<a href="/gas" class="nav-link">Plyn</a>
+					</router-link>
+					<router-link tag="li" class="nav-item" active-class="active" to="/electric">
+						<a href="/electric" class="nav-link">Elektřina</a>
+					</router-link>
 				</ul>
 			</div>
 		</nav>
 
 		<!-- component matched by the route will render here -->
 		<router-view/>
+		<div class="alert alert-info" role="alert">
+			API: {{apiUrl}}
+		</div>
 	</div>
 </template>
 
 <script>
 
 	export default {
-		name: 'app'
+		name: 'app',
+		data () {
+			return {
+				apiUrl: process.env.VUE_APP_API_URL
+			}
+		}
 	}
 </script>
 
