@@ -31,11 +31,13 @@
 
 <script>
 
+	import config from './config.js'
+
 	export default {
 		name: 'app',
 		data () {
 			return {
-				apiUrl: process.env.VUE_APP_API_URL
+				apiUrl: config.ENV_API_URL
 			}
 		}
 	}

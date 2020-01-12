@@ -4,12 +4,15 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-ARG VUE_APP_API_URL
-ENV VUE_APP_API_URL $VUE_APP_API_URL
+ENV VUE_APP_API_URL '%API_URL_PLACEHOLDER%'
 RUN npm run build
 
 # production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+RUN apk add php7
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY prepare_env.php /
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]

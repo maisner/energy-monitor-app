@@ -1,9 +1,10 @@
 import axios from 'axios'
+import config from '../config'
 
 class ApiWrapper {
 
 	constructor () {
-		this.baseUrl = process.env.VUE_APP_API_URL;
+		this.baseUrl = config.ENV_API_URL;
 	}
 
 	addMeterState (date, commodity, state) {
