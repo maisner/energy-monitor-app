@@ -2,9 +2,9 @@
 	<div class="chart">
 		<div class="row">
 			<div class="col-sm-12 text-right">
-				<button class="btn btn-sm" v-on:click="changeType('line')">Line</button>
-				<button class="btn btn-sm" v-on:click="changeType('bar')">Bar</button>
-				<button v-on:click="reload()" class="btn btn-default btn-sm"><i class="icon ion-md-refresh"></i>
+				<button class="btn btn-sm" @click="changeType('line')">Line</button>
+				<button class="btn btn-sm" @click="changeType('bar')">Bar</button>
+				<button @click="reload()" class="btn btn-default btn-sm"><i class="icon ion-md-refresh"></i>
 				</button>
 			</div>
 		</div>

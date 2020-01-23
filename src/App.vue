@@ -17,6 +17,9 @@
 					<router-link tag="li" class="nav-item" active-class="active" to="/electric">
 						<a href="/electric" class="nav-link">Elektřina</a>
 					</router-link>
+					<router-link tag="li" class="nav-item" active-class="active" to="/test">
+						<a href="/test" class="nav-link">Test</a>
+					</router-link>
 				</ul>
 			</div>
 		</nav>
