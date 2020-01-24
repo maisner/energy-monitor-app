@@ -1,27 +1,31 @@
+<template>
+	<div id="chartist"></div>
+</template>
+
 <script>
-	import {Line} from 'vue-chartjs'
+	import Chartist from 'chartist'
 
 	export default {
-		name:    'TestChart',
-		extends: Line,
-		data:    () => ({
+		name: 'TestChart',
+		data: () => ({
 			chartdata: {
-				labels:   ['January', 'February'],
-				datasets: [
-					{
-						label:           'Data One',
-						backgroundColor: '#f87979',
-						data:            [40, 20]
-					}
+				labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+				series: [
+					[12, 9, 7, 8, 5],
+					[2, 1, 3.5, 7, 3],
+					[1, 3, 4, 5, 6]
 				]
 			},
 			options:   {
-				responsive:          true,
-				maintainAspectRatio: false
+				fullWidth:    true,
+				height:       600,
+				chartPadding: {
+					right: 40
+				}
 			}
 		}),
 		mounted () {
-			this.renderChart(this.chartdata, this.options)
+			new Chartist.Line('#chartist', this.chartdata, this.options);
 		}
 	}
 </script>
