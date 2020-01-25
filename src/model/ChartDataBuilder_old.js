@@ -27,54 +27,18 @@ class ChartDataBuilder {
 		})
 
 		return data;
-
-		return {
-			label:       'Měsíční spotřeba (m³)',
-			data:        data,
-			// borderWidth:     1,
-			// pointRadius:     1,
-			// lineTension:     0.4,
-			// backgroundColor: '#44b5ff',
-			// backgroundColor: 'rgba(145,202,220,0.1)',
-			// borderColor:     'rgba(145,202,220,1)',
-			// fill:        false,
-			borderColor: "#8e5ea2",
-			fill:        true
-		};
 	}
 
 	getConfigFromData (type, consumptionData) {
 		let labels = this.prepareLabelsFromData(consumptionData);
 
 		return {
-			labels: labels,
+			labels:   labels,
 			series: [
-				{ value: this.prepareDatasetFromData(consumptionData), name: "Name", className: "commodity-dataset" },
-				{ value: this.getLimitDataset(labels.length), name: "Limit", className: "limit-dataset" },
-
+				this.prepareDatasetFromData(consumptionData),
+				this.getLimitDataset(labels.length)
 			]
 		};
-
-		return {
-			type:    type,
-			data:    {
-				labels:   labels,
-				datasets: [
-					this.prepareDatasetFromData(consumptionData),
-					this.getLimitDataset(labels.length)
-				]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:  true,
-							suggestedMax: this.getYAxesMaxValue(consumptionData)
-						}
-					}]
-				}
-			}
-		}
 	}
 
 	getYAxesMaxValue (consumptionData) {

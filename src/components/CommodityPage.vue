@@ -2,7 +2,7 @@
 	<div class="commodity-page">
 		<div class="row">
 			<div class="col-sm-12">
-				<CommodityChart :commodity="commodity"/>
+				<CommodityChartV2 :commodity="commodity"/>
 			</div>
 		</div>
 		<div class="mt-5"></div>
@@ -23,6 +23,7 @@
 <script>
 
 	import CommodityChart from './CommodityChart'
+	import CommodityChartV2 from './CommodityChartV2'
 	import MeterStates from './MeterStates'
 	import AddMeterState from './AddMeterState'
 
@@ -33,6 +34,7 @@
 		},
 		components: {
 			CommodityChart,
+			CommodityChartV2,
 			MeterStates,
 			AddMeterState
 		}
