@@ -4,7 +4,7 @@ import App from './App.vue'
 import GasPage from './components/GasPage'
 import ElectricPage from './components/ElectricPage'
 import FlashMessage from '@smartweb/vue-flash-message';
-import TestChart from './components/TestChart'
+import HomePage from './components/HomePage'
 
 Vue.use(VueRouter)
 Vue.use(FlashMessage);
@@ -13,10 +13,9 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
 	routes: [
-		{ path: '/', component: {template: '<h1>Ahoj</h1>'} },
+		{ path: '/', component: HomePage },
 		{ path: '/gas', component: GasPage },
-		{ path: '/electric', component: ElectricPage },
-		{ path: '/test', component: TestChart },
+		{ path: '/electric', component: ElectricPage }
 	]
 })
 

@@ -28,7 +28,7 @@
 				chartData:        null,
 				options:          {
 					fullWidth: true,
-					height:    600,
+					height:    500,
 					// low:       0,
 					// showArea:  true
 				}
