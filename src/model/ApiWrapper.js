@@ -23,5 +23,10 @@ export default {
 		return axios.get(this.baseUrl + '/api/v1/meter-state/all?commodity=' + commodity).then((response) => {
 			return response.data;
 		});
+	},
+	getAverageData (commodity) {
+		return axios.get(this.baseUrl + '/api/v1/consumption/average?commodity=' + commodity).then((response) => {
+			return response.data;
+		});
 	}
 };
