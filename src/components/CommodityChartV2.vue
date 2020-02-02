@@ -15,7 +15,7 @@
 
 <script>
 	import Chartist from 'chartist'
-	import {ApiWrapper} from '../model/ApiWrapper'
+	import ApiWrapper from '../model/ApiWrapper'
 	import {ChartDataBuilder} from '../model/ChartDataBuilder'
 
 	export default {
@@ -43,22 +43,20 @@
 				this.chart.update();
 			},
 			reload () {
-				this.api.getConsumptionData(this.commodity).then((data) => {
+				ApiWrapper.getConsumptionData(this.commodity).then((data) => {
 					this.chart.config = this.chartDataBuilder.getConfigFromData('line', data.data[ 0 ]);
 					this.chart.update(this.chartData, this.options);
 				});
 			},
 			createChart () {
-				this.api.getConsumptionData(this.commodity).then((data) => {
+				ApiWrapper.getConsumptionData(this.commodity).then((data) => {
 					this.chartData = this.chartDataBuilder.getConfigFromData('line', data.data[ 0 ]);
 					this.chart = new Chartist.Line('.chartist', this.chartData, this.options);
 				});
 			}
 		},
 		mounted () {
-			this.api = new ApiWrapper();
 			this.chartDataBuilder = new ChartDataBuilder();
-
 			this.createChart();
 		}
 	}

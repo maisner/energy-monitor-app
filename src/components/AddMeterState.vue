@@ -16,7 +16,7 @@
 </template>
 
 <script>
-	import {ApiWrapper} from '../model/ApiWrapper'
+	import ApiWrapper from '../model/ApiWrapper'
 	import moment from 'moment'
 
 	export default {
@@ -43,7 +43,7 @@
 
 				let self = this;
 
-				this.api.addMeterState(date, this.commodity, state).then(function () {
+				ApiWrapper.addMeterState(date, this.commodity, state).then(function () {
 					self.reset();
 					self.flashMessage.success({
 						title:   'Stav měřidla byl přidán',
@@ -51,9 +51,6 @@
 					});
 				});
 			}
-		},
-		mounted () {
-			this.api = new ApiWrapper();
 		}
 	}
 </script>

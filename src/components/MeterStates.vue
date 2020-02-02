@@ -22,7 +22,7 @@
 </template>
 
 <script>
-	import {ApiWrapper} from '../model/ApiWrapper'
+	import ApiWrapper from '../model/ApiWrapper'
 	import moment from 'moment'
 
 	export default {
@@ -38,7 +38,7 @@
 		},
 		methods: {
 			loadData () {
-				this.api.getAllMeterStates(this.commodity).then((data) => {
+				ApiWrapper.getAllMeterStates(this.commodity).then((data) => {
 					let previousState = null;
 
 					let result = [];
@@ -58,7 +58,6 @@
 			}
 		},
 		mounted () {
-			this.api = new ApiWrapper();
 			this.loadData();
 		}
 	}
